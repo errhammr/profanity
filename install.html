@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profanity, a console based XMPP client - Installation Guide</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1"> 
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="css/profanity.css" type="text/css" rel="stylesheet"><!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/analytics.js"></script> 
+    <script type="text/javascript" src="js/trackclicks.js"></script> 
+</head>
+<body id="article">
+    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <header>
+        <a href="userguide.html"><h1>User Guide</h1></a>
+        <h2>Installation Guide</h2>
+        
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+            
+            <ul>
+                <li><a href="#nixdistros">Linux/FreeBSD</a>
+                <li><a href="#os-x">Mac OS X</a>
+                <li><a href="#windows">Windows (Cygwin)</a></li>
+                <li><a href="#androidtermux">Android (Termux)</a>
+                <li><a href="#installscript">Helper script</a>
+                <li><a href="#manualinstall">Manual install</a>
+                <li><a href="#pkgdeps">Dependencies</a>
+            </ul>
+        </section>
+        <section>
+            <a name="nixdistros"></a>
+            <h3>Linux/*BSD</h3>
+            <table>
+                <tr>
+                    <td>ALT</td>
+                    <td>
+                        <a href="https://packages.altlinux.org/en/Sisyphus/srpms/profanity" target="_blank">packages.altlinux.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Arch</td>
+                    <td>
+                        <a href="https://www.archlinux.org/packages/?sort=&q=profanity&maintainer=&flagged=" target="_blank">archlinux.org</a><br>
+                        <a href="https://aur.archlinux.org/packages/profanity-git/" target="_blank">aur.archlinux.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Debian</td>
+                    <td>
+                        <a href="https://packages.debian.org/search?keywords=profanity" target="_blank">packages.debian.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Exherbo</td>
+                    <td>
+                        <a href="http://git.exherbo.org/summer/packages/net-im/profanity/index.html" target="_blank">git.exherbo.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Funtoo</td>
+                    <td>
+                        <a href="http://www.funtoo.org/Package:Profanity" target="_blank">funtoo.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gentoo</td>
+                    <td>
+                        <a href="http://gpo.zugaina.org/net-im/profanity" target="_blank">gpo.zugaina.org</a><br>
+                        <a href="https://github.com/maxrp/profanity-overlay" target="_blank">github.com maxrp</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>openSUSE</td>
+                    <td>
+                        <a href="https://software.opensuse.org/package/profanity" target="_blank">software.opensuse.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Slackware</td>
+                    <td>
+                        <a href="https://slackbuilds.org/result/?search=profanity&sv=" target="_blank">slackbuilds.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ubuntu</td>
+                    <td>
+                        <a href="http://packages.ubuntu.com/search?keywords=profanity&searchon=names&suite=all&section=all" target="_blank">packages.ubuntu.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nix/NixOS</td>
+                    <td>
+                        <a href="https://nixos.org/nixos/packages.html#profanity" target="_blank">nixos.org/nixos/packages.html</a><br>
+                        <a href="https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/networking/instant-messengers/profanity/default.nix" target="_blank">github.com/NixOS/nixpkgs/</a>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>FreeBSD</td>
+                    <td>
+                        <a href="https://www.freebsd.org/cgi/ports.cgi?query=profanity&stype=all&sektion=net-im" target="_blank">www.freebsd.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>OpenBSD</td>
+                    <td>
+                        <pre><code>pkg_add profanity</code></pre>
+                    </td>
+                </tr>
+            </table>
+            <p>To add to this list, submit a pull request to the <a href="https://github.com/boothj5/www_profanity_im/blob/master/install.html" target="_blank">website source</a>, or email the <a href="https://groups.google.com/forum/#!forum/profanitydev" target="_blank">Mailing list</a> with details.</p>
+        </section>
+        <section>
+            <a name="os-x"></a>
+            <h3>Mac OS X</h3>
+
+            <h4>Homebrew</h4>
+            <p>To install profanity using homebrew:</p>
+            <pre><code>brew install profanity</code></pre>
+            <p>Desktop notifications are an optional (disabled by default) dependency since terminal-notifier is not available on all versions of OSX. To attempt to install the formula with desktop notification support:</p>
+            <pre><code>brew install profanity --with-terminal-notifier</code></pre>
+            <p>To ensure you have all features supported <code>profanity -v</code> should show the following:</p>
+            <pre><code>Desktop notification support: Enabled
+OTR support: Enabled
+PGP support: Enabled
+C plugins: Enabled
+Python plugins: Enabled</code></pre>
+            <p>To install the latest development version, use the tap supplied by robsalasco at Github available <a id="robroom-brew" target="_blank" href="https://github.com/robsalasco/homebrew-profanity">here</a>:</p>
+            <pre><code>brew tap robsalasco/homebrew-profanity
+brew install profanity --HEAD</code></pre>
+            
+            <h4>Macports</h4>
+            <p>A howto using macports has also been written by louiecaulfield at Github available <a id="louiecaulfield-macports" target="_blank" href="https://github.com/louiecaulfield/profanity/wiki/Building-under-OS-X">here</a>.</p>
+        </section>
+        <section>
+            <a name="windows"></a>
+            <h3>Windows</h3>
+           
+            <h4>Install Cygwin</h4>
+            <p>Install Cygwin by downloading and running:</p>
+            <p>64Bit: <a href="http://cygwin.com/setup-x86_64.exe">http://cygwin.com/setup-x86_64.exe</a></p>
+            <p>32bit: <a href="http://cygwin.com/setup-x86.exe">http://cygwin.com/setup-x86.exe</a></p>
+
+            <h4>Dependencies</h4>
+            <p><code>wget</code> and <code>unzip</code> are required to install Profanity. When running setup.exe, search for and add them when asked to select packages.</p>
+            <p>Note: To make use of <a href="otr.html">OTR support</a> on Cygwin, the <code>libotr-devel</code> package is required which is not currently in the official repositories. <code>libotr-devel</code> can be found in the <a id="cyg-ports" target="_blank" href="https://sourceware.org/cygwinports/">Cygwin Ports project</a>.</p>
+
+            <h4>Download and Install</h4>
+            <p>Download the zip archive from the homepage and extract, then download the install script and run it in the project directory:<p>
+            <pre><code>wget http://www.profanity.im/profanity-0.5.1.zip
+unzip profanity-0.5.1.zip
+cd profanity-0.5.1
+wget http://www.profanity.im/install-all.sh
+chmod u+x install-all.sh
+./install-all.sh</code></pre>
+        </section>
+        <section>
+            <a name="androidtermux"></a>
+            <h3>Android</h3>
+            <p>Profanity is included as a Termux package on Android. Install Termux from the <a href="https://play.google.com/store/apps/details?id=com.termux&hl=en" target="_blank">Google Play App store</a>.</p>
+            <p>Update the package list and install Profanity:<p>
+            <pre><code>apt update
+apt install profanity</code></pre>
+        </section>
+        <section>
+            <a name="installscript"></a>
+            <h3>Helper script</h3>
+
+            <p>A helper script has been written to install all required and optional dependencies and run the above steps. This script currently supports Ubuntu, Fedora, Centos, OpenSuse and Cygwin.<p>
+            <p>Download the script into the project directory and run it:<p>
+            <pre><code>wget http://www.profanity.im/install-all.sh
+chmod u+x install-all.sh
+./install-all.sh</code></pre>
+        </section>
+        <section>
+            <a name="manualinstall"></a>
+            <h3>Manual install</h3>
+
+            <p>Profanity uses the autotools for installation from source.<p>
+            <p>After downloading the archive from the homepage, and extracting it, use the following commands to install:<p>
+            <pre><code>./configure
+make
+make install</code></pre>
+            <p>The final step requires root privileges.</p>
+            <p>If you cloned the git repository rather than downloading a released version, an additional step is required to generate the <code>./configure</code> script:<p>
+            <pre><code>./bootstrap.sh
+./configure
+make
+make install</code></pre>
+            <p>Various dependencies are required to install Profanity, the <code>./configure</code> script will fail if the minimum dependencies cannot be found.<p>
+            <p>The latest code in <code>master</code> is also kept up to date with development changes to libmesode/libstrophe, so a manual build of this library may also be needed, see the <a target="_blank" href="https://github.com/boothj5/libmesode/blob/master/README.markdown">README</a> at libmesode.</p>
+        </section>
+        <section>
+            <a name="pkgdeps"></a>
+            <h3>Dependencies</h3>
+
+            <p>The package names below are from Ubuntu and may differ per distribution.</p>
+
+            <h4>Build dependencies:</h4>
+            <pre><code>automake
+autoconf
+autoconf-archive
+libtool
+pkg-config</code></pre>
+
+            <h4>Required dependencies:</h4>
+
+            <p>Profanity can be built against either <a href="https://github.com/strophe/libstrophe" target="_blank">libstrophe</a>, or <a href="https://github.com/boothj5/libmesode" target="_blank">libmesode</a>. Libmesode has a few extra features around manual TLS certificate verification.  Version 0.5.1 of Profanity requires version 0.9.x of libstrophe or libmesode.</p> 
+
+            <p>Profanity also requires:</p>
+            <pre><code>libncursesw5-dev
+libglib2.0-dev
+libcurl3-dev
+libreadline-dev</code></pre>
+
+            <h4>Optional dependencies:</h4>
+
+            <pre><code>libnotify-dev  # Desktop notification support
+libxss-dev     # Desktop idle time autoaway support
+libotr5-dev    # OTR support
+libgpgme11-dev # PGP support
+libgtk2.0-dev  # Desktop tray icon support
+python-dev     # Python plugin support
+libcmocka-dev  # To run tests</code></pre>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+</html>

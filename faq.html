@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profanity, a console based XMPP client - FAQ</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="-1"> 
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="css/profanity.css" type="text/css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/analytics.js"></script>
+    <script type="text/javascript" src="js/trackclicks.js"></script>
+</head>
+<body id="article">
+    <img class="overlay" src="images/profanity_mouth-only.png" alt="Profanity Illustration">	
+    <header>
+        <a href="index.html"><h1>Profani<span class="kern-ty">ty</span></h1></a>
+        <h2>Frequently Asked Questions</h2>
+    </header>
+    <article id="manual">
+        <section>
+            <h3>Contents</h3>
+            
+            <ul>
+                <li>
+                    <ul>
+                        <li><a href="#platform">Will Profanity run on &ltsome platform&gt?</a></li>
+                        <li><a href="#gtalk">Will Profanity work with Google Talk?</a></li>
+                        <li><a href="#gtalkrooms">How do I start groupchat with Google Talk?</a></li>
+                        <li><a href="#facebook">Will Profanity work with Facebook Chat?</a></li>
+                        <li><a href="#slack">Will Profanity work with Slack?</a></li>
+                        <li><a href="#msn">Will Profanity work with MSN/Yahoo/AIM/IRC etc?</a></li>
+                        <li><a href="#keychain">Can Profanity use my keychain/keyring to retrieve my password?</a>
+                        <li><a href="#multiaccount">Can I connect to more than one account at a time?</a></li>
+                        <li><a href="#termf1">Why does the F1 key open terminal help rather than going back to the main console window?</a></li>
+                        <li><a href="#utf8encoding">Why can I not type anything in the input bar?</a></li>
+                        <li><a href="#bugs">I've found a bug/have a feature request, who do I tell?</a></li>
+                        <li><a href="#contrib">I'd like to contribute, what should I do?</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <a name="platform"></a>
+            <h4>Will Profanity run on &ltsome platform&gt?</h4>
+            <p>Profanity should run on any POSIX system, see the <a href="install.html">install guide</a> for specifics.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="gtalk"></a>
+            <h4>Will Profanity work with Google Talk?</h4>
+            <p>Profanity should work with Google Talk accounts as long as Google supports XMPP. Just use the <a href="reference.html#connect"<code>/connect</code></a> command with your email address e.g.:</p>
+            <pre><code>/connect user@gmail.com</code></pre>
+            <p>If you receive a "Login failed" message, you may need to enable access to your Google account from third party applications. Use the following link after signing in to your Google account: <a href="https://www.google.com/settings/security/lesssecureapps" target="_blank">https://www.google.com/settings/security/lesssecureapps</a>.</p>
+            <p>Google Talk is no longer a federated service, so you can only talk to other contacts who have a Google account.</p>
+            <p>If you are using a Google Apps account, the details are slightly different. For example, if your Google Apps user is "someuser" and your Google Apps domain is "company.org" you can connect with the following:</p>
+            <pre><code>/connect someuser@company.org server talk.google.com</code></pre>
+            <p>Google is deprecating older authentication mechanisms in favour or OAUTH2, which profanity does not yet support.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="gtalkrooms"></a>
+            <h4>How to I start groupchat with Google Talk?</h4>
+            <p>Google Talk has a few constrains/subtleties for performing groupchat. Firstly your account <code>muc</code> property must be set to <code>groupchat.google.com</code>, you can do this with the following command:</p>
+            <pre><code>/account set someaddress@gmail.com muc groupchat.google.com</code></pre>
+            <p>Secondly, the chat room name must follow a certain convention <code>private-chat-[UUID]@[service]</code> where <code>UUID</code> is a unique identifier for the room, and <code>service</code> is the property set above. Profanity will automatically use this convention and generate the UUID for you if you simply enter:</p>
+            <pre><code>/join</code></pre>
+            <p>A new groupchat will be created for you.</p>
+            <p>To invite users to the room use the <a href="reference.html#invite"><code>/invite</code></a> command as usual.</p>
+            <p>Finally, depending on the client your contacts are using, they may appear as a random number rather than their user name. To show the email address associated with each contact:</p>
+            <pre><code>/occupants show jid</code></pre>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="facebook"></a>
+            <h4>Will Profanity work with Facebook Chat?</h4>
+            <p>Facebook have recently announced that they will no longer support the open XMPP chat protocol, so Profanity will no longer work with Facebook Chat.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="slack"></a>
+            <h4>Will Profanity work with Slack?</h4>
+            <p>Provided the XMPP gateway has been enabled for your team, Profanity will work. See <a target="_blank" href="https://slack.zendesk.com/hc/en-us/articles/201727913-Connecting-to-Slack-over-IRC-and-XMPP">the Slack page on gateways.</a></p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="msn"></a>
+            <h4>Will Profanity work with MSN/Yahoo/AIM/IRC etc?</h4>
+            <p>No, Profanity is purely an XMPP chat client.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="keychain"></a>
+            <h4>Can Profanity use my keychain/keyring to retrieve my password?</h4>
+            <p>Yes, the <a href="reference.html#account"><code>/account</code></a> command includes an <code>eval_password</code> property which can be used to execute a script to retrieve your password.</p>
+            <p>For example on Ubuntu using gnome-keyring and <a href="https://apps.ubuntu.com/cat/applications/libsecret-tools/" target="_blank"><code>secret-tool</code></a>:</p>
+            <p>To add the password:</p>
+<pre><code>secret-tool store --label="Bobs account" xmpp bob@server.org</code></pre>
+            <p>You will be prompted to enter the password.</p>
+            <p>Command to use for the account <code>eval_password</code> property:</p>
+<pre><code>secret-tool lookup xmpp bob@server.org</code></pre>
+            <p>On OS X, use the following command for the <code>eval_password</code> property:</p>
+<pre><code>security find-generic-password -s bob@server.org -w</code></pre>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+
+        <section>
+            <a name="multiaccount"></a>
+            <h4>Can I connect to more than one account at a time?</h4>
+            <p>No, the recommended way is to use multiple terminal windows, or GNU Screen.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="termf1"></a>
+            <h4>Why does the F1 key open terminal help rather than going back to the main console window?</h4>
+            <p>Some terminals have a key binding for F1 to open help. You can use the alt-num keys to change windows, or if you prefer to use the F keys, you'll need to change the terminal setting to open help with another key.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="utf8encoding"></a>
+            <h4>Why can I not type anything in the input bar?</h4>
+            <p>Profanity uses the ncursesw library to support wide characters, which requires a UTF-8 encoding.  Try running the following (or the equivalent for your language's UTF-8 encoding) in the terminal before running profanity.</p>
+<pre><code>export LANG=en_US.UTF-8</code></pre>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="bugs"></a>
+            <h4>I've found a bug/have a feature request who do I tell?</h4>
+            <p>If you have a github account, you can log an issue on the <a href="https://github.com/boothj5/profanity/issues?state=open" target="_blank">issue tracker</a>.</p>
+            <p>Alternatively you are welcome to post on the <a href="https://groups.google.com/forum/?hl=en&fromgroups#!forum/profanitydev" target="_blank">mailing list</a>.</p>
+            <p>Finally you can email the project maintainer at boothj5web@gmail.com.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+        <section>
+            <a name="contrib"></a>
+            <h4>I'd like to contribute, what should I do?</h4>
+            <p>A page has been written with some ideas for how to <a id="link-helpout" href="helpout.html">help out</a>.  Any contributions/ideas are very welcome.</p>
+            <a href="#top"><h5>back to top</h5></a>
+        </section>
+    </article>
+    <footer>
+        <p class="matty">site designed by <a href="http://www.matthewbalaam.co.uk">Matthew Balaam</a></p>
+    </footer>
+</body>
+</html>
